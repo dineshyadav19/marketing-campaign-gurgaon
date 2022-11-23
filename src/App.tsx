@@ -7,7 +7,7 @@ import logo from './assets/logo.png';
 import paySvg from './assets/pay.svg';
 import reportSvg from './assets/report.svg';
 
-let FLOW_API_URL = 'https://tqlm8y1mjl.execute-api.us-east-2.amazonaws.com/';
+let FLOW_API_URL = import.meta.env.VITE_APP_API_URL;
 
 function loadScript(src: string) {
   return new Promise((resolve) => {
@@ -35,17 +35,11 @@ function App() {
       return;
     }
 
-    const data = await fetch(
-      `https://tqlm8y1mjl.execute-api.us-east-2.amazonaws.com/razorpay`,
-      {
-        method: 'POST',
-      }
-    ).then((t) => t.json());
-
-    console.log(data);
+    const data = await fetch(FLOW_API_URL, {
+      method: 'POST',
+    }).then((t) => t.json());
 
     const options = {
-      //TODO: Change this with env files
       key: 'rzp_test_N48bOgOWcG6zL1',
       currency: data.currency,
       amount: data.amount.toString(),
@@ -57,9 +51,6 @@ function App() {
         if (response.razorpay_signature) {
           setShowCalendlyLink(true);
         }
-        console.log(response.razorpay_payment_id);
-        console.log(response.razorpay_order_id);
-        console.log(response.razorpay_signature);
       },
       prefill: {
         name: '',
@@ -73,13 +64,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
       <div className="header">
         <img src={companyLogo} alt="companyLogo" className="header--img" />
       </div>
-      <div className="content">
+      <div className="main">
         <img src={headerSvg} alt="company-logo" />
-        <h1>Welcome to SunEdison!</h1>
+        <h1>Welcome !</h1>
         <p>
           We're empowering people like you to become solar heroes with our
           end-to-end solar solutions.
@@ -91,7 +82,7 @@ function App() {
             </div>
             <div className="steps--block-content">
               <h4>Pay Rs. 49</h4>
-              <p>Book a slot for our expert’s visit to your home.</p>
+              <p>Book a slot for our expert’s visit to your home at Rs. 49</p>
             </div>
           </div>
           <div className="steps--block">
@@ -109,39 +100,36 @@ function App() {
             <div className="steps--block-img">
               <img src={askSvg} alt="ask" />
             </div>
-            <div
-              className="steps--block-content"
-              style={{ marginLeft: '20px' }}
-            >
-              <h4>Get in touch to know more</h4>
+            <div className="steps--block-content">
+              <h4>Clear all your doubts</h4>
               <p>
-                Get answers to all your questions about installation,
-                electricity bill savings, maintenance, and more!
+                Get clarity on installation, electricity bill, savings,
+                maintenance, and more!
               </p>
             </div>
           </div>
         </div>
+        <div>
+          {showCalendlyLink ? (
+            <a
+              className="button"
+              href="https://calendly.com/dinesh-y/site-survey?month=2022-11"
+            >
+              Book a Slot Now
+            </a>
+          ) : (
+            <a
+              className="button"
+              onClick={displayRazorpay}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Make Payment
+            </a>
+          )}
+        </div>
       </div>
-      <div className="action--btn">
-        {showCalendlyLink ? (
-          <a
-            className="button"
-            href="https://calendly.com/dinesh-y/site-survey?month=2022-11"
-          >
-            Book a Slot Now
-          </a>
-        ) : (
-          <a
-            className="button"
-            onClick={displayRazorpay}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Make Payment
-          </a>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 
