@@ -126,7 +126,7 @@ function App() {
         {showCalendlyLink ? (
           <a
             className="button"
-            //href="https://calendly.com/dinesh-y/site-survey?month=2022-11"
+            href="https://calendly.com/dinesh-y/site-survey?month=2022-11"
           >
             Book a Slot Now
           </a>
