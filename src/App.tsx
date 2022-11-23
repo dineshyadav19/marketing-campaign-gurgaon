@@ -7,65 +7,65 @@ import logo from './assets/logo.png';
 import paySvg from './assets/pay.svg';
 import reportSvg from './assets/report.svg';
 
-function loadScript(src: string) {
-  return new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = src;
-    script.onload = () => {
-      resolve(true);
-    };
-    script.onerror = () => {
-      resolve(false);
-    };
-    document.body.appendChild(script);
-  });
-}
+// function loadScript(src: string) {
+//   return new Promise((resolve) => {
+//     const script = document.createElement('script');
+//     script.src = src;
+//     script.onload = () => {
+//       resolve(true);
+//     };
+//     script.onerror = () => {
+//       resolve(false);
+//     };
+//     document.body.appendChild(script);
+//   });
+// }
 
 function App() {
   const [showCalendlyLink, setShowCalendlyLink] = useState(false);
-  async function displayRazorpay() {
-    const res = await loadScript(
-      'https://checkout.razorpay.com/v1/checkout.js'
-    );
+  // async function displayRazorpay() {
+  //   const res = await loadScript(
+  //     'https://checkout.razorpay.com/v1/checkout.js'
+  //   );
 
-    if (!res) {
-      alert('Razorpay SDK failed to load. Are you online?');
-      return;
-    }
+  //   if (!res) {
+  //     alert('Razorpay SDK failed to load. Are you online?');
+  //     return;
+  //   }
 
-    const data = await fetch('http://localhost:3002/razorpay', {
-      method: 'POST',
-    }).then((t) => t.json());
+  //   const data = await fetch('http://localhost:3002/razorpay', {
+  //     method: 'POST',
+  //   }).then((t) => t.json());
 
-    console.log(data);
+  //   console.log(data);
 
-    const options = {
-      //TODO: Change this with env files
-      key: 'rzp_test_N48bOgOWcG6zL1',
-      currency: data.currency,
-      amount: data.amount.toString(),
-      order_id: data.id,
-      name: 'Book Your Slot for an Expert Visit',
-      description: 'Thank you for consulting with us',
-      image: logo,
-      handler: function (response: any) {
-        if (response.razorpay_signature) {
-          setShowCalendlyLink(true);
-        }
-        console.log(response.razorpay_payment_id);
-        console.log(response.razorpay_order_id);
-        console.log(response.razorpay_signature);
-      },
-      prefill: {
-        name: '',
-        email: '',
-        phone_number: '',
-      },
-    };
-    const _window = window as any;
-    const paymentObject = new _window.Razorpay(options);
-    paymentObject.open();
-  }
+  //   const options = {
+  //     //TODO: Change this with env files
+  //     key: 'rzp_test_N48bOgOWcG6zL1',
+  //     currency: data.currency,
+  //     amount: data.amount.toString(),
+  //     order_id: data.id,
+  //     name: 'Book Your Slot for an Expert Visit',
+  //     description: 'Thank you for consulting with us',
+  //     image: logo,
+  //     handler: function (response: any) {
+  //       if (response.razorpay_signature) {
+  //         setShowCalendlyLink(true);
+  //       }
+  //       console.log(response.razorpay_payment_id);
+  //       console.log(response.razorpay_order_id);
+  //       console.log(response.razorpay_signature);
+  //     },
+  //     prefill: {
+  //       name: '',
+  //       email: '',
+  //       phone_number: '',
+  //     },
+  //   };
+  //   const _window = window as any;
+  //   const paymentObject = new _window.Razorpay(options);
+  //   paymentObject.open();
+  // }
 
   return (
     <div className="App">
@@ -128,7 +128,7 @@ function App() {
         ) : (
           <a
             className="button"
-            onClick={displayRazorpay}
+            //onClick={displayRazorpay}
             target="_blank"
             rel="noopener noreferrer"
           >
