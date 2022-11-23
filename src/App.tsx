@@ -8,6 +8,7 @@ import paySvg from './assets/pay.svg';
 import reportSvg from './assets/report.svg';
 
 let FLOW_API_URL = import.meta.env.VITE_APP_API_URL;
+const CHECKOUT_RAZORPAY_URL = 'https://checkout.razorpay.com/v1/checkout.js';
 
 function loadScript(src: string) {
   return new Promise((resolve) => {
@@ -26,9 +27,7 @@ function loadScript(src: string) {
 function App() {
   const [showCalendlyLink, setShowCalendlyLink] = useState(false);
   async function displayRazorpay() {
-    const res = await loadScript(
-      'https://checkout.razorpay.com/v1/checkout.js'
-    );
+    const res = await loadScript(CHECKOUT_RAZORPAY_URL);
 
     if (!res) {
       alert('Razorpay SDK failed to load. Are you online?');
@@ -37,7 +36,7 @@ function App() {
 
     const data = await fetch(FLOW_API_URL, {
       method: 'POST',
-    }).then((t) => t.json());
+    }).then((res) => res.json());
 
     const options = {
       key: 'rzp_test_N48bOgOWcG6zL1',
