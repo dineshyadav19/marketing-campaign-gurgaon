@@ -8,6 +8,7 @@ import paySvg from './assets/pay.svg';
 import reportSvg from './assets/report.svg';
 
 let FLOW_API_URL = import.meta.env.VITE_APP_API_URL;
+let RAZORPAY_KEY = import.meta.env.VITE_APP_RAZORPAY_API;
 const CHECKOUT_RAZORPAY_URL = 'https://checkout.razorpay.com/v1/checkout.js';
 
 function loadScript(src: string) {
@@ -34,15 +35,12 @@ function App() {
       return;
     }
 
-    const data = await fetch(
-      'https://tqlm8y1mjl.execute-api.us-east-2.amazonaws.com/razorpay',
-      {
-        method: 'POST',
-      }
-    ).then((res) => res.json());
+    const data = await fetch(FLOW_API_URL, {
+      method: 'POST',
+    }).then((res) => res.json());
 
     const options = {
-      key: 'rzp_live_1Tcwr7uYJVaXiB',
+      key: RAZORPAY_KEY,
       currency: data.currency,
       amount: data.amount.toString(),
       order_id: data.id,
