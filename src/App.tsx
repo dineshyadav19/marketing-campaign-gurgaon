@@ -34,12 +34,15 @@ function App() {
       return;
     }
 
-    const data = await fetch(FLOW_API_URL, {
-      method: 'POST',
-    }).then((res) => res.json());
+    const data = await fetch(
+      'https://tqlm8y1mjl.execute-api.us-east-2.amazonaws.com/razorpay',
+      {
+        method: 'POST',
+      }
+    ).then((res) => res.json());
 
     const options = {
-      key: 'rzp_test_N48bOgOWcG6zL1',
+      key: 'rzp_live_1Tcwr7uYJVaXiB',
       currency: data.currency,
       amount: data.amount.toString(),
       order_id: data.id,
