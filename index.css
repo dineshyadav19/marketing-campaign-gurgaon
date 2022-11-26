@@ -45,8 +45,7 @@
 }
 
 .steps--block-img {
-  width: 85px;
-  margin-right: 0.75rem;
+      width: 3rem;
 }
 
 .steps--block-content {
@@ -54,6 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+      margin-left: 1.5rem;
 }
 
 
