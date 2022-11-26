@@ -5,12 +5,60 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KkaylMMEjS268i" async>
-      { ' ' }
-    </script>{' '}
-  </form>
+  <div id="root">
+  <div class="header">
+    <img src={companyLogo} alt="companyLogo" class="header--img" />
+  </div>
+  <div class="main">
+    <img src={headerSvg} alt="company-logo" />
+    <h1>Welcome !</h1>
+    <p>
+      We're empowering people like you to become solar heroes with our
+      end-to-end solar solutions.
+    </p>
+    <div class="steps">
+      <div class="steps--block">
+        <div class="steps--block-img">
+          <img src={paySvg} alt="pay" />
+        </div>
+        <div class="steps--block-content">
+          <h4>Pay Rs. 49</h4>
+          <p>Book a slot for our expert’s visit to your home at Rs. 49</p>
+        </div>
+      </div>
+      <div class="steps--block">
+        <div class="steps--block-img">
+          <img src={reportSvg} alt="report" />
+        </div>
+        <div class="steps--block-content">
+          <h4>Get a detailed report</h4>
+          <p>
+            Solar potential of your rooftop, valid for all solar companies.
+          </p>
+        </div>
+      </div>
+      <div class="steps--block">
+        <div class="steps--block-img">
+          <img src={askSvg} alt="ask" />
+        </div>
+        <div class="steps--block-content">
+          <h4>Clear all your doubts</h4>
+          <p>
+            Get clarity on installation, electricity bill, savings,
+            maintenance, and more!
+          </p>
+        </div>
+      </div>
+    </div>
+    <form>
+      <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KkaylMMEjS268i" async>
+        { ' ' }
+      </script>{' '}
+    </form>
+  </div>
+  </div>
 </body>
 </html>
