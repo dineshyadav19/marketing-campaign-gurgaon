@@ -112,6 +112,15 @@ function App() {
             </div>
           </div>
         </div>
+        <form>
+          <script
+            src="https://checkout.razorpay.com/v1/payment-button.js"
+            data-payment_button_id="pl_KkaylMMEjS268i"
+            async
+          >
+            {' '}
+          </script>{' '}
+        </form>
         <div>
           {showCalendlyLink ? (
             <a
