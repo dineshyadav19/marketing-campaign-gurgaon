@@ -11,6 +11,7 @@
   left: 0;
   right: 0;
   width: 100vw;
+  z-index: 100;
   max-height: 56px;
   background-color: black;
 }
@@ -21,36 +22,31 @@
   margin: 16px 0 16px 0;
 }
 
-
-.content {
-  position: relative;
-  top: 80px;
+.main {
+  margin-top: 100px;
 }
 
+.steps {
+  margin: 1.5rem 0;
+}
 
 .steps--block {
   display: flex;
-  justify-content: space-between;
 }
 
-.steps--block > div > h4 {
+.steps--block>div>h4,
+.steps--block>div>p {
   text-align: start;
-  margin: 4px;
-}
-
-.steps--block > div > p {
-  text-align: start;
-  margin: 4px ;
+  margin: 0.25rem 0;
 }
 
 .steps--block-img {
-  width: 60px;
+  width: 85px;
+  margin-right: 0.75rem;
 }
 
 .steps--block-content {
   text-align: left;
-  margin-left: 8px;
-
 }
 
 
@@ -73,10 +69,3 @@
 .button--payment:visited {
   color: white;
 }
-
-.action--btn {
-  position: relative;
-  top: 100px;
-  padding: 2em;
-}
-
