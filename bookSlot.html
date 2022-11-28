@@ -9,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
   <link rel="stylesheet" href="./index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,15 +18,16 @@
       <img src="assets/image.png" alt="companyLogo" class="header--img" />
     </div>
     <div class="main">
-      <img src="assets/confirmation.jpg" alt="company-logo" class="confirm--img"/>
-      <p>
-        Thank you! You have successfully booked your slot with our expert.
-        Next step: Please pay Rs. 49 to confirm the visit by clicking the button below.
-      </p>
+      <h1 style="text-align: left">Make Payment</h1>
+      <p style="text-align: left">You will be redirected to Razorpay for secure payment</p>
       <form>
         <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KkaylMMEjS268i" async>
         </script>
       </form>
+
+      <p>
+        After successful payment you will receive a message on your mobile phone.
+      </p>
     </div>
   </div>
 </body> 
