@@ -15,7 +15,7 @@
 <body>
   <div id="root">
     <div class="header">
-      <img src="assets/image.png" alt="companyLogo" class="header--img" />
+      <img src="./assets/image.png" alt="companyLogo" class="header--img" />
     </div>
     <div class="main">
       <div class="help">
@@ -23,7 +23,7 @@
           Need Help ?
         </a>
       </div>  
-      <img src="assets/header.svg" alt="company-logo" />
+      <img src="./assets/header.svg" alt="company-logo" />
       <p style="text-align: left">
         We’re happy that you’re considering solar for your home! We will be your guide on this journey.
       </p>
@@ -56,11 +56,20 @@
           </div>
         </div>
       </div>
-      <a class="button" href="https://calendly.com/sunedison/expertvisit?month=2022-11">
+      <a class="button" href="https://pages.razorpay.com/pl_L9XZeL3Y7fp95l/view" id="razorpay-url">
         Book a Slot Now >
       </a>
     </div>
   </div>
+
+  <script>
+    function getOriginUrl() {
+      const getParam = (new URL(document.location)).searchParams.get('ref')
+      const anchor = document.getElementById('razorpay-url')
+      anchor.href = anchor.href + `?referral=${getParam}`
+    }
+    getOriginUrl()
+  </script>
 </body>
 
 </html>
