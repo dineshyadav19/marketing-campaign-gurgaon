@@ -66,7 +66,7 @@
     function getOriginUrl() {
       const getParam = (new URL(document.location)).searchParams.get('ref')
       const anchor = document.getElementById('razorpay-url')
-      anchor.href = anchor.href + `?referral=${getParam}`
+      anchor.href = anchor.href + `?referral=${getParam || ''}`
     }
     getOriginUrl()
   </script>
