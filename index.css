@@ -65,6 +65,10 @@ p {
 
 .steps {
   margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .steps--block {
@@ -76,20 +80,20 @@ p {
   width: 200px;
 }
 
-.steps--block>div>h4,
-.steps--block>div>p {
+.steps--block > div > h4,
+.steps--block > div > p {
   text-align: start;
   margin: 0.15rem 0;
 }
 
-.steps--block>div>p {
+.steps--block > div > p {
   font-weight: 300;
   font-size: 12px;
   line-height: 151%;
 }
 
 .steps--block-img {
-      width: 3rem;
+  width: 3rem;
 }
 
 .steps--block-content {
@@ -108,7 +112,7 @@ p {
 
 .button {
   cursor: pointer;
-  background-color: #FE842D;
+  background-color: #fe842d;
   color: white;
   border-radius: 1.75rem;
   border: 1px solid transparent;
