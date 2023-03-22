@@ -37,13 +37,13 @@
           We’re happy that you’re considering solar for your home! We will be your guide on this journey.
         </p>
         <div class="steps">
-          <div class="steps--block">
+          <div class="steps--block" style="min-width: 350px; max-width: 600px;">
             <div class="steps--block-img">
               <img src="assets/bookVisit.svg" alt="report" />
             </div>
-            <div class="steps--block-content">
+            <div class="steps--block-content" >
               <h4>Book an expert visit.</h4>
-              <p>Choose a time slot convenient to you by paying only <span style="color: #FF7300; font-weight: 400;">₹49</span></p>
+              <p>Choose a time slot convenient to you</p>
             </div>
           </div>
           <div class="steps--block">
@@ -84,11 +84,7 @@
               <input type="text" id="name" name="name" required class="input-field">
             </div>
             <div class="flex">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required class="input-field">
-            </div>
-            <div class="flex">
-              <label for="phone">Phone:</label>
+              <label for="phone">Phone (WhatsApp Enabled):</label>
               <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required class="input-field">
             </div>
             <div class="flex">
@@ -97,7 +93,7 @@
             </div>
             <div class="flex">
               <label for="time">Preferred Time:</label>
-              <input type="text" id="date" name="time" class="input-field">
+              <input type="time" id="time" name="time" class="input-field">
             </div>
             <button type="submit" class="button submit-btn">Submit</button>
           </form>
