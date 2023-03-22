@@ -37,7 +37,7 @@
           We’re happy that you’re considering solar for your home! We will be your guide on this journey.
         </p>
         <div class="steps">
-          <div class="steps--block" style="min-width: 350px; max-width: 600px;">
+          <div class="steps--block" style="min-width: 350px;">
             <div class="steps--block-img">
               <img src="assets/bookVisit.svg" alt="report" />
             </div>
@@ -84,34 +84,43 @@
               <input type="text" id="name" name="name" required class="input-field">
             </div>
             <div class="flex">
-              <label for="phone">Phone (WhatsApp Enabled):</label>
-              <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required class="input-field">
+              <label for="mobile">Phone (WhatsApp Enabled):</label>
+              <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required class="input-field">
             </div>
             <div class="flex">
-              <label for="date">Preferred Date:</label>
-              <input type="date" id="date" name="date" required  class="input-field">
+              <label for="preferredDate">Preferred Date:</label>
+              <input type="date" id="preferredDate" name="preferredDate" required  class="input-field">
             </div>
             <div class="flex">
-              <label for="time">Preferred Time:</label>
-              <input type="time" id="time" name="time" class="input-field">
+              <label for="preferredTime">Preferred Time:</label>
+              <input type="time" id="preferredTime" name="preferredTime" class="input-field" required>
             </div>
             <button type="submit" class="button submit-btn">Submit</button>
           </form>
         </div>
       </div>
 
+      <!-- Confirmation modal -->
+
+      <div id="myConfirmationModal" class="modal">
+        <div class="modal-content">
+          <div class="main">
+            <h1>Booking Successful</h1>
+            <img src="assets/confirmation.svg" alt="company-logo" />
+            <p class="confirmation--page">
+              Thank you. <br> Our team will contact you shortly for more details on the visit.
+            </p>
+            <p class="confirmation--page-contact">For booking related queries <br> Contact +91 9150166624</p>
+          </div>
+        </div>
+      </div>
     </div>
     
     <script>
-      // function getOriginUrl() {
-      //   const getParam = (new URL(document.location)).searchParams.get('ref')
-      //   const anchor = document.getElementById('razorpay-url')
-      //   anchor.href = anchor.href + `?source_id=${getParam || ''}`
-      // }
-      // getOriginUrl()
 
       // Get the modal element
       let modal = document.getElementById("myModal");
+      let confirmationModal = document.getElementById("myConfirmationModal");
 
       // Get the button that opens the modal
       let btn = document.getElementById("open-modal-button");
@@ -132,6 +141,7 @@
       window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
+          confirmationModal.style.display = 'none';
         }
       }
 
@@ -139,19 +149,22 @@
           event.preventDefault();
           const formData = new FormData(event.target);
           const formObject = Object.fromEntries(formData.entries());
-          console.log(formObject)
-          const apiUrl = 'https://example.com/api'; // replace with your API endpoint
+          const getParam = (new URL(document.location)).searchParams.get('ref')
+          const apiUrl = 'https://backend.flow.sunedison.in/campaigns/create/';
           fetch(apiUrl, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formObject),
+            body: JSON.stringify({...formObject, details: getParam }),
           })
+          
             .then((response) => response.json())
             .then((data) => {
-              console.log(data); // do something with the API response
-              modal.style.display = 'none'; // close the modal
+              if(data.status === 200) {
+                modal.style.display = 'none'; // close the modal
+                confirmationModal.style.display = 'block'
+              }
             })
             .catch((error) => console.error(error));
         });
