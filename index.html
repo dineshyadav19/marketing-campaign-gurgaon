@@ -1,86 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
 
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1531K3ZKC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1531K3ZKC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-    gtag('config', 'G-M1531K3ZKC');
-  </script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Slot</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
-  <link rel="stylesheet" href="./index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
+      gtag('config', 'G-M1531K3ZKC');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Slot</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  </head>
 
-
-
-<body>
-  <div id="root">
-    <div class="header">
-      <img src="./assets/image.png" alt="companyLogo" class="header--img" />
-    </div>
-    <div class="main">
-      <div class="help">
-        <a class="help--btn" href="tel:+919150166624">
-          Need Help ?
-        </a>
-      </div>  
-      <img src="./assets/header.svg" alt="company-logo" />
-      <p style="text-align: center">
-        We’re happy that you’re considering solar for your home! We will be your guide on this journey.
-      </p>
-      <div class="steps">
-        <div class="steps--block">
-          <div class="steps--block-img">
-            <img src="assets/bookVisit.svg" alt="report" />
+  <body>
+    <div id="root">
+      <div class="header">
+        <img src="./assets/Fenice.png" alt="companyLogo" class="header--img" />
+      </div>
+      <div class="main">
+        <div class="help">
+          <a class="help--btn" href="tel:+919150166624">
+            Need Help ?
+          </a>
+        </div>  
+        <img src="./assets/header.svg" alt="company-logo" />
+        <p style="text-align: center">
+          We’re happy that you’re considering solar for your home! We will be your guide on this journey.
+        </p>
+        <div class="steps">
+          <div class="steps--block">
+            <div class="steps--block-img">
+              <img src="assets/bookVisit.svg" alt="report" />
+            </div>
+            <div class="steps--block-content">
+              <h4>Book an expert visit.</h4>
+              <p>Choose a time slot convenient to you by paying only <span style="color: #FF7300; font-weight: 400;">₹49</span></p>
+            </div>
           </div>
-          <div class="steps--block-content">
-            <h4>Book an expert visit.</h4>
-            <p>Choose a time slot convenient to you by paying only <span style="color: #FF7300; font-weight: 400;">₹49</span></p>
+          <div class="steps--block">
+            <div class="steps--block-img">
+              <img src="assets/address.svg" alt="pay" />
+            </div>
+            <div class="steps--block-content">
+              <h4>Expert visits your home</h4>
+              <p>Engineer inspects your rooftop and answers all your queries.</p>
+            </div>
+          </div>
+          <div class="steps--block">
+            <div class="steps--block-img">
+              <img src="assets/reportt.svg" alt="ask" />
+            </div>
+            <div class="steps--block-content">
+              <h4>Get a detailed report</h4>
+              <p>Analysis of your rooftop to get the optimum solar setup for you</p>
+            </div>
           </div>
         </div>
-        <div class="steps--block">
-          <div class="steps--block-img">
-            <img src="assets/address.svg" alt="pay" />
+        <button class="button" id="open-modal-button">
+          Book a Slot Now
+        </button>
+      </div>
+      <!-- Modal HTML -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Please Enter your details</h4>
+            <span class="close">&times;</span>
           </div>
-          <div class="steps--block-content">
-            <h4>Expert visits your home</h4>
-            <p>Engineer inspects your rooftop and answers all your queries.</p>
-          </div>
-        </div>
-        <div class="steps--block">
-          <div class="steps--block-img">
-            <img src="assets/reportt.svg" alt="ask" />
-          </div>
-          <div class="steps--block-content">
-            <h4>Get a detailed report</h4>
-            <p>Analysis of your rooftop to get the optimum solar setup for you</p>
-          </div>
+          
+          <div class="border-bottom"></div>
+          <form id="myForm">
+            <div class="flex">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required class="input-field">
+            </div>
+            <div class="flex">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required class="input-field">
+            </div>
+            <div class="flex">
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="date" required  class="input-field">
+            </div>
+            <div class="flex">
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required class="input-field">
+            </div>
+            <button type="submit" class="button submit-btn">Submit</button>
+          </form>
         </div>
       </div>
-      <a class="button" href="https://pages.razorpay.com/pl_L9XZeL3Y7fp95l/view" id="razorpay-url">
-        Book a Slot Now >
-      </a>
+
     </div>
-  </div>
+    
+    <script>
+      // function getOriginUrl() {
+      //   const getParam = (new URL(document.location)).searchParams.get('ref')
+      //   const anchor = document.getElementById('razorpay-url')
+      //   anchor.href = anchor.href + `?source_id=${getParam || ''}`
+      // }
+      // getOriginUrl()
 
-  <script>
-    function getOriginUrl() {
-      const getParam = (new URL(document.location)).searchParams.get('ref')
-      const anchor = document.getElementById('razorpay-url')
-      anchor.href = anchor.href + `?source_id=${getParam || ''}`
-    }
-    getOriginUrl()
-  </script>
-</body>
+      // Get the modal element
+      let modal = document.getElementById("myModal");
 
+      // Get the button that opens the modal
+      let btn = document.getElementById("open-modal-button");
+
+      // Get the <span> element that closes the modal
+      let span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      document.getElementById('myForm').addEventListener('submit', function (event) {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const formObject = Object.fromEntries(formData.entries());
+          console.log(formObject)
+          const apiUrl = 'https://example.com/api'; // replace with your API endpoint
+          fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formObject),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data); // do something with the API response
+              modal.style.display = 'none'; // close the modal
+            })
+            .catch((error) => console.error(error));
+        });
+
+    </script>
+  </body>
 </html>
