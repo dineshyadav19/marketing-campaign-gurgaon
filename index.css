@@ -144,7 +144,7 @@ p {
 }
 
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -233,7 +233,7 @@ input[type='date'] {
   margin-top: 1rem;
 }
 
-h4 {
+.modal-title {
   margin: 0;
   color: #0d2366;
   overflow-wrap: break-word;
